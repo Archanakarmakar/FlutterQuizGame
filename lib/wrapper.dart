@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/authenticate.dart';
-import 'package:login/home.dart';
+import 'package:login/loginScreen .dart';
 import 'package:provider/provider.dart';
 import 'package:login/user.dart';
 
@@ -14,7 +14,7 @@ import 'package:login/user.dart';
         if (user == null) {
           return Authenticate();
         } else {
-          return Home();
+          return LoginScreen();
         }
       }
     }

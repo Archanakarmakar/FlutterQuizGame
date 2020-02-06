@@ -65,6 +65,7 @@ class _SignInState extends State<SignIn> {
                       setState(()=> password = val);
                        }
                 ),
+
               SizedBox(height:20.0),
               RaisedButton(
                 color:Colors.pink[400],
@@ -92,10 +93,12 @@ class _SignInState extends State<SignIn> {
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
+
               ]
                 ),
                ),
               ),
+
     );
 
   }

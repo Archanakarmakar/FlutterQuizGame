@@ -1,9 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:login/user.dart';
 
 class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final Firestore _db = Firestore.instance;
+
+
+  Future<FirebaseUser> get getUser => _auth.currentUser();
+  Stream<FirebaseUser> get user1 => _auth.onAuthStateChanged;
   
   //create user object based on firebase user
   

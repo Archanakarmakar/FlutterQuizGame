@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
         actions:<Widget>[
           FlatButton.icon(
             icon:Icon(Icons.person),
-            label:Text('Sign In'),
+            label:Text('Register'),
             onPressed:  () {
               widget.toggleView();
             },
@@ -47,6 +47,8 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child:Column(
               children:<Widget>[
+
+
                 SizedBox(height:20.0),
                 TextFormField(
                   decoration: textInputDecoration.copyWith(hintText: 'Enter Email Address'),

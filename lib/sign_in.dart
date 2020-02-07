@@ -25,7 +25,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         elevation: 0.0,
@@ -69,8 +69,8 @@ class _SignInState extends State<SignIn> {
                  color:Colors.blue,
                   child:Text(
                   'Sign In',
-                  style:TextStyle(color:Colors.white),
-                   ),
+                   style:TextStyle(color:Colors.white),
+                    ),
                   onPressed: ()async{
                   if (_formKey.currentState.validate()) {
                     setState(() => loading = true);
@@ -91,7 +91,7 @@ class _SignInState extends State<SignIn> {
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
-              FlutterLogo(size: 150),
+              FlutterLogo(size: 200),
             ],
                ),
                ),

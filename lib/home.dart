@@ -70,7 +70,7 @@ class  Home extends StatelessWidget {
 
          ),
       ),
-      Expanded(
+       Expanded(
         flex:4,
         child:Row(
           mainAxisAlignment:MainAxisAlignment.center,
@@ -97,7 +97,7 @@ class  Home extends StatelessWidget {
           ],
         ),
       ),
-     ],
+      ],
       ),
     );
   }

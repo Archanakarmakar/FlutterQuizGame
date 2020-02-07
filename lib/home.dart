@@ -24,12 +24,12 @@ class  Home extends StatelessWidget {
         actions:<Widget>[
           FlatButton.icon(
             icon:Icon(Icons.person),
-            label:Text('logout'),
+            label:Text('Logout'),
             color:Colors.red[500],
             onPressed: ()async{
               await _auth.signOut();
             },
-          )
+          ),
         ],
 
       ),

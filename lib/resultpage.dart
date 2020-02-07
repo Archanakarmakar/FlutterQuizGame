@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/quizstarthm.dart';
+import 'package:login/auth.dart';
+import 'package:login/authenticate.dart';
 
 class resultpage extends StatefulWidget {
   int marks;
@@ -12,6 +14,9 @@ class resultpage extends StatefulWidget {
 }
 
 class _resultpageState extends State<resultpage> {
+
+  final AuthService _auth = AuthService();
+
   int marks;
   _resultpageState(this.marks);
   @override
@@ -20,8 +25,18 @@ class _resultpageState extends State<resultpage> {
         appBar: AppBar(
             title:Text(
               "Result",
-            )
-        ),
+            ),
+            actions:<Widget>[
+             FlatButton.icon(
+               icon:Icon(Icons.person),
+               label:Text('Logout'),
+               color:Colors.red[500],
+                onPressed: ()async{
+               await _auth.signOut();
+              },
+             ),
+           ],
+          ),
         body:Column(
           children: <Widget>[
             Expanded(

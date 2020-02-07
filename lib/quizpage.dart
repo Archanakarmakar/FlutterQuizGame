@@ -221,7 +221,7 @@ class _quizpageState extends State<quizpage> {
                     alignment:Alignment.topCenter ,
                     child:Center(
                       child:Text(
-                        showtimer,
+                          showtimer,
                         style:TextStyle(
                           fontSize:35.0,
                           fontWeight:FontWeight.w700,

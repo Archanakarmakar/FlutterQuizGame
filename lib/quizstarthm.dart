@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/quizpage.dart';
@@ -5,12 +7,16 @@ import 'package:login/auth.dart';
 import 'package:login/authenticate.dart';
 
 class quizstarthm extends StatefulWidget {
-  final AuthService _auth= AuthService();
+ // final AuthService _auth= AuthService();
+
   @override
   _quizstarthmState createState() => _quizstarthmState();
 }
 
 class _quizstarthmState extends State<quizstarthm> {
+
+  final AuthService _auth = AuthService();
+
   List<String> images = [
     "images/logo.png",
     "images/js.png",
@@ -86,15 +92,22 @@ class _quizstarthmState extends State<quizstarthm> {
     ]);
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            "QuizStar",
-            style:TextStyle(
-              fontFamily: "Quando",
-
+          title: Text("QuizStar"),
+          backgroundColor:Colors.blue[900],
+          elevation: 0.0,
+          actions:<Widget>[
+            FlatButton.icon(
+              icon:Icon(Icons.person),
+              label:Text('Logout'),
+              color:Colors.red[500],
+              onPressed: ()async{
+                await _auth.signOut();
+              },
             ),
+          ],
 
-          ),
         ),
+
         body:ListView(
           children: <Widget>[
             customcard("Math1",images[0]),

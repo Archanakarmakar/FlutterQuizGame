@@ -25,11 +25,11 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         elevation: 0.0,
-        title: Text('Sign to Kids Quiz'),
+        title: Text('SignIn to Kids Quiz'),
         actions:<Widget>[
             FlatButton.icon(
             icon:Icon(Icons.person),
@@ -42,21 +42,21 @@ class _SignInState extends State<SignIn> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
          child: Form(
            key: _formKey,
           child:Column(
             children:<Widget>[
-              SizedBox(height:20.0),
+                SizedBox(height:20.0),
                 TextFormField(
                     decoration: textInputDecoration.copyWith(hintText: 'Enter Email Address'),
                     validator: (val) => val.isEmpty ? 'Enter an email ID' : null,
-                onChanged:(val){
-                setState(()=> email = val);
+                   onChanged:(val){
+                   setState(()=> email = val);
                  }
                 ),
-                SizedBox(height:20.0),
-                TextFormField(
+                  SizedBox(height:20.0),
+                 TextFormField(
                     decoration: textInputDecoration.copyWith(hintText: 'Enter Password'),
                     obscureText: true,
                     validator: (val) => val.length < 6 ? 'Enter an PWD 6+ Char Long' : null,
@@ -64,14 +64,14 @@ class _SignInState extends State<SignIn> {
                       setState(()=> password = val);
                        }
                 ),
-              SizedBox(height:20.0),
-              RaisedButton(
-                color:Colors.pink[400],
-                child:Text(
-                  'Sign in',
+                 SizedBox(height:20.0),
+                 RaisedButton(
+                 color:Colors.blue,
+                  child:Text(
+                  'Sign In',
                   style:TextStyle(color:Colors.white),
-                ),
-                onPressed: ()async{
+                   ),
+                  onPressed: ()async{
                   if (_formKey.currentState.validate()) {
                     setState(() => loading = true);
                     dynamic result = await  _auth.signInWithEmailandPassword(email, password);
@@ -84,17 +84,19 @@ class _SignInState extends State<SignIn> {
                                            }
                      }
                   }
-              ),
+                 ),
 
               SizedBox(height: 12.0),
               Text(
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
-              ]
-                ),
+              FlutterLogo(size: 150),
+            ],
                ),
-              ),
+               ),
+
+      ),
     );
 
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login/auth.dart';
-import 'package:login/authenticate.dart';
-import 'package:login/auth.dart';
 import 'package:login/constants.dart';
 import 'package:login/loading.dart';
+import 'package:flutter/services.dart';
 
 class SignIn extends StatefulWidget {
 
@@ -28,7 +27,7 @@ class _SignInState extends State<SignIn> {
     return loading ? Loading() : Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: Colors.blue,
         elevation: 0.0,
         title: Text('Sign to Kids Quiz'),
         actions:<Widget>[
@@ -65,7 +64,6 @@ class _SignInState extends State<SignIn> {
                       setState(()=> password = val);
                        }
                 ),
-
               SizedBox(height:20.0),
               RaisedButton(
                 color:Colors.pink[400],
@@ -93,12 +91,10 @@ class _SignInState extends State<SignIn> {
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
-
               ]
                 ),
                ),
               ),
-
     );
 
   }

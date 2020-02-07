@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/auth.dart';
 import 'package:login/constants.dart';
 import 'package:login/loading.dart';
+import 'package:flutter/services.dart';
 
 
 
@@ -27,13 +28,13 @@ class _RegisterState extends State<Register> {
     return loading ? Loading() : Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: Colors.redAccent,
         elevation: 0.0,
         title: Text('Register to Kids Quiz'),
         actions:<Widget>[
           FlatButton.icon(
             icon:Icon(Icons.person),
-            label:Text('Register'),
+            label:Text('Sign In'),
             onPressed:  () {
               widget.toggleView();
             },
@@ -47,8 +48,6 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child:Column(
               children:<Widget>[
-
-
                 SizedBox(height:20.0),
                 TextFormField(
                   decoration: textInputDecoration.copyWith(hintText: 'Enter Email Address'),

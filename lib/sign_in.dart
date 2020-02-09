@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         elevation: 0.0,
-        title: Text('SignIn to Kids Quiz'),
+        title: Text('Sign In to Kids Quiz'),
         actions:<Widget>[
           FlutterLogo(size:60),
 

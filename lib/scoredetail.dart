@@ -6,25 +6,20 @@ import 'package:login/home.dart';
 import 'package:login/quizstarthm.dart';
 //import 'package:login/sign_in.dart';
 import 'package:login/auth.dart';
-import 'package:login/scoredetail.dart';
 //import 'package:login/authenticate.dart';
 //import 'package:login/splash.dart';
 
-class resultpage extends StatefulWidget {
+class scoredetail extends StatefulWidget {
 
-  int marks;
   String QA;
-
-  resultpage({Key key,@required this.marks}):super(key:key);
-
+  scoredetail({Key key,@required this.QA}):super(key:key);
   @override
-  _resultpageState createState() => _resultpageState(marks);
- }
-class _resultpageState extends State<resultpage> {
+  _scoredetailState createState() => _scoredetailState(QA);
+}
+class _scoredetailState extends State<scoredetail> {
   //final AuthService _auth = AuthService();
-  int marks;
-  _resultpageState(this.marks);
-
+  String QA;
+  _scoredetailState(this.QA);
 
   @override
 
@@ -41,26 +36,26 @@ class _resultpageState extends State<resultpage> {
 
   Widget build(BuildContext context) {
     return  Scaffold(
-           appBar: AppBar(
-            title:Text(
-              "Result",
-            ),
-          backgroundColor:Colors.lightGreen,
-            actions:<Widget>[
-              FlutterLogo(size:60),
-             FlatButton.icon(
-               icon:Icon(Icons.person),
-               label:Text('Go Home'),
-               color:Colors.red[500],
-               onPressed:(){
-
-                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                   builder:(context)=> Home(),
-                 ));
-              },
-             ),
-           ],
+        appBar: AppBar(
+          title:Text(
+            "Details Q&A",
           ),
+          backgroundColor:Colors.lightGreen,
+          actions:<Widget>[
+            FlutterLogo(size:60),
+            FlatButton.icon(
+              icon:Icon(Icons.person),
+              label:Text('Go Home'),
+              color:Colors.red[500],
+              onPressed:(){
+
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder:(context)=> Home(),
+                ));
+              },
+            ),
+          ],
+        ),
         body:Column(
           children: <Widget>[
             Expanded(
@@ -85,11 +80,11 @@ class _resultpageState extends State<resultpage> {
                       ),
                       Center(
                         child:Text(
-                          "Congrats - Your Scored $marks !!",
-                            style:TextStyle(
+                          "Congrats - Details Q&A $QA",
+                          style:TextStyle(
                             fontSize: 13.0,
                             fontFamily: "Quando",
-                         ),
+                          ),
                         ),
                       ),
                     ],
@@ -111,33 +106,6 @@ class _resultpageState extends State<resultpage> {
                     },
                     child:Text(
                       "Restart Quiz",
-                      style:TextStyle(
-                        fontSize: 18.0,
-                      ),
-                    ),
-                    padding:EdgeInsets.symmetric(
-                      vertical:10.0,
-                      horizontal: 25.0,
-                    ),
-                    borderSide: BorderSide(width:5.0,color:Colors.indigo),
-                    splashColor: Colors.indigoAccent,
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-              flex:1,
-              child:Row(
-                mainAxisAlignment:MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  OutlineButton(
-                    onPressed:(){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder:(context)=> scoredetail(),
-                      ));
-                    },
-                    child:Text(
-                      "Details Score",
                       style:TextStyle(
                         fontSize: 18.0,
                       ),

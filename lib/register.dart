@@ -70,9 +70,9 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height:20.0),
                 RaisedButton(
-                  color:Colors.blue,
+                  color:Colors.black,
                   child:Text(
-                    'Sign Up Here',
+                    'Sign Up',
                     style:TextStyle(color:Colors.white),
                   ),
                   onPressed: ()async {

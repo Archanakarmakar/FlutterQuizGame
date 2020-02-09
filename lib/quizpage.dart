@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/resultpage.dart';
+import 'package:login/scoredetail.dart';
 
 
 
@@ -90,8 +91,39 @@ class _quizpageState extends State<quizpage> {
       if(i<5){
         i++;
       }else{
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder:(context) => resultpage(QA: QA),
+        //Delete
+        return showDialog(
+            context: context,
+            builder:(context)=> AlertDialog(
+                title: Text(
+                  "Your Final Score for the Quiz",
+                ),
+                content: Text(
+                    "Score : $marks !!\n\nClick OK to see Details Q&A.",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.indigo,
+                    //fontFamily: "Satisfy",
+                  ),
+                ),
+                actions:<Widget>[
+                  FlatButton(
+                    onPressed: (){
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder:(context) => scoredetail(QA: QA,),
+                      ));
+                    },
+                    child: Text(
+                      'Ok',
+                    ),
+                  )
+      ],
+                          )
+        );
+        //Delete
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder:(context) => scoredetail(QA: QA,),
         ));
       }
       btncolor["a"] = Colors.indigo;
@@ -99,7 +131,7 @@ class _quizpageState extends State<quizpage> {
       btncolor["c"] = Colors.indigo;
       btncolor["d"] = Colors.indigo;
     });
-    //starttimer();
+    starttimer();
   }
   void checkanswer(String k) {
     if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
@@ -161,7 +193,7 @@ class _quizpageState extends State<quizpage> {
               context: context,
               builder:(context)=> AlertDialog(
                   title: Text(
-                    "Quizstar",
+                    "Quizstart",
                   ),
                   content: Text(
                       "You can't go back at this stage"
@@ -185,16 +217,16 @@ class _quizpageState extends State<quizpage> {
           body:Column(
             children: <Widget>[
               Expanded(
-                  flex:3,
+                  flex:2,
                   child:Container(
                     padding:EdgeInsets.all(15.0),
                     alignment: Alignment.bottomLeft,
                     child:Text(
                       mydata[0][i.toString()],
                       style: TextStyle(
-                          fontSize: 16.0,
-                          fontFamily: "Quando"
-
+                          fontSize: 23.0,
+                          fontFamily: "Quando",
+                          color: Colors.black,
                       ),
 
                     ),
@@ -214,6 +246,24 @@ class _quizpageState extends State<quizpage> {
                     ),
                   )
               ),
+              // Delete
+              Expanded(
+                  flex:1,
+                  child:Container(
+                    padding:EdgeInsets.all(15.0),
+                    alignment: Alignment.bottomLeft,
+                    child:Text(
+                      'Your Score $marks',
+                      style: TextStyle(
+                          fontSize: 27.0,
+                          fontFamily: "Quando"
+
+                      ),
+
+                    ),
+                  )
+              ),
+              // Delete
               Expanded(
                   flex:1,
                   child:Container(

@@ -14,7 +14,7 @@ class _splashscreenState extends State<splashscreen> {
   @override
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 10),()
+    Timer(Duration(seconds: 20),()
     {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => quizstarthm(),
@@ -28,7 +28,7 @@ class _splashscreenState extends State<splashscreen> {
     return  Scaffold(
         appBar: AppBar(
          title:Text(
-                 "About",
+                 "About Kids Quiz",
                   ),
               backgroundColor:Colors.indigo,
                actions:<Widget>[
@@ -52,12 +52,12 @@ class _splashscreenState extends State<splashscreen> {
                Expanded(
                 flex:1,
                 child:Material(
-                elevation: 40.0 ,
+                elevation: 2.0 ,
                   child:Container(
                     child:Text(
-                            "Quiz Start:",
+                            "Kids Quiz:",
                              style: TextStyle(
-                             fontSize: 50.0,
+                             fontSize: 40.0,
                              color: Colors.indigo,
                              fontFamily: "Satisfy",
                                  ),
@@ -66,7 +66,7 @@ class _splashscreenState extends State<splashscreen> {
                                 ),
             ),
                          Expanded(
-                           flex:5,
+                           flex:9,
                            child:Material(
                                  child:Text(
                                    "Rules:",
@@ -79,13 +79,7 @@ class _splashscreenState extends State<splashscreen> {
                                )
                      ) ,
                               ],
-
-
-
             ),
-
-
-
     );
   }
 }

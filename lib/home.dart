@@ -28,6 +28,7 @@ class  Home extends StatelessWidget {
             color:Colors.red[500],
               onPressed: ()async{
               await _auth.signOut();
+              print("Clicked on LOGOUT");
             },
           ),
         ],
@@ -36,7 +37,7 @@ class  Home extends StatelessWidget {
       body:Column(
       children: <Widget>[
        Expanded(
-       flex:7,
+       flex:5,
          child:Material(
          elevation: 20.0 ,
            child:Container(
@@ -57,9 +58,9 @@ class  Home extends StatelessWidget {
                       ),
              Center(
                child:Text(
-                 "Click on Continue \nto Start The Quiz!",
+                 "* Click on Continue to Start The Quiz!",
                  style:TextStyle(color: Colors.blue,
-                   fontSize: 25.0,
+                   fontSize: 15.0,
                    fontFamily: "Quando",
                  ),
                ),

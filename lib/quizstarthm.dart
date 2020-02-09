@@ -93,7 +93,7 @@ class _quizstarthmState extends State<quizstarthm> {
     ]);
     return Scaffold(
         appBar: AppBar(
-          title: Text("QuizStar"),
+          title: Text("Start Kids Quiz"),
           backgroundColor:Colors.blue[900],
           elevation: 0.0,
           actions:<Widget>[

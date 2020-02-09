@@ -1,38 +1,56 @@
-import 'dart:async';
-import 'dart:convert';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
+import 'package:login/home.dart';
 import 'package:login/quizstarthm.dart';
+//import 'package:login/sign_in.dart';
 import 'package:login/auth.dart';
-import 'package:login/authenticate.dart';
+//import 'package:login/authenticate.dart';
+//import 'package:login/splash.dart';
 
 class resultpage extends StatefulWidget {
-  int marks;
-  resultpage({Key key,@required this.marks}):super(key:key);
+  String QA;
+  resultpage({Key key,@required this.QA}):super(key:key);
   @override
-  _resultpageState createState() => _resultpageState(marks);
-}
-
+  _resultpageState createState() => _resultpageState(QA);
+ }
 class _resultpageState extends State<resultpage> {
-
   final AuthService _auth = AuthService();
+  String QA;
+  _resultpageState(this.QA);
 
-  int marks;
-  _resultpageState(this.marks);
   @override
+
+  // Timer Setting in Result Page
+  /*void initState(){
+    super.initState();
+    Timer(Duration(seconds: 20),()
+    {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => splashscreen(),
+      ));
+    });
+  }*/
+
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
             title:Text(
               "Result",
             ),
+          backgroundColor:Colors.lightGreen,
             actions:<Widget>[
+              FlutterLogo(size:60),
              FlatButton.icon(
                icon:Icon(Icons.person),
-               label:Text('Logout'),
+               label:Text('Go Home'),
                color:Colors.red[500],
-                onPressed: ()async{
-               await _auth.signOut();
+               onPressed:(){
+
+                   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                   builder:(context)=> Home(),
+                 ));
               },
              ),
            ],
@@ -49,11 +67,11 @@ class _resultpageState extends State<resultpage> {
                       Material(
                         child:Container(
                           width:300.0,
-                          height: 300.0,
+                          height: 200.0,
                           child:ClipRect(
                             child:Image(
                               image:AssetImage(
-                                "images/flutter.png",
+                                "images/congo.jpg",
                               ),
                             ),
                           ),
@@ -61,11 +79,11 @@ class _resultpageState extends State<resultpage> {
                       ),
                       Center(
                         child:Text(
-                          "Congratulations you \nScored $marks  marks!",
-                          style:TextStyle(
-                            fontSize: 25.0,
+                          "Congrats !! Your Score 20 !\n$QA",
+                            style:TextStyle(
+                            fontSize: 13.0,
                             fontFamily: "Quando",
-                          ),
+                         ),
                         ),
                       ),
                     ],
@@ -75,7 +93,7 @@ class _resultpageState extends State<resultpage> {
               ),
             ),
             Expanded(
-              flex:4,
+              flex:1,
               child:Row(
                 mainAxisAlignment:MainAxisAlignment.center,
                 children: <Widget>[

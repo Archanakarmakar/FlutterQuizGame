@@ -1,14 +1,14 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/services.dart';
+//import 'dart:async';
+//import 'dart:convert';
+//import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:login/auth.dart';
-import 'package:login/authenticate.dart';
+//import 'package:login/authenticate.dart';
 import 'package:login/splash.dart';
-import 'package:login/quizpage.dart';
+//import 'package:login/quizpage.dart';
 //import 'package:color/color.dart';
-import 'package:login/register.dart';
-import 'package:login/splash.dart';
+//import 'package:login/register.dart';
+//import 'package:login/splash.dart';
 
 
 class  Home extends StatelessWidget {
@@ -19,14 +19,14 @@ class  Home extends StatelessWidget {
     backgroundColor:Colors.lightGreenAccent,
       appBar: AppBar(
         title:Text(' Kids Quiz game'),
-        backgroundColor:Colors.green[900],
+        backgroundColor:Colors.blue[900],
         elevation: 0.0,
         actions:<Widget>[
           FlatButton.icon(
             icon:Icon(Icons.person),
-            label:Text('Logout'),
+            label:Text('LOGOUT'),
             color:Colors.red[500],
-            onPressed: ()async{
+              onPressed: ()async{
               await _auth.signOut();
             },
           ),
@@ -49,7 +49,7 @@ class  Home extends StatelessWidget {
                 child:ClipRect(
                    child:Image(
                  image:AssetImage(
-                 "images/flutter.png",
+                 "images/kq.png",
                               ),
                             ),
                           ),
@@ -58,7 +58,7 @@ class  Home extends StatelessWidget {
              Center(
                child:Text(
                  "Click on Continue \nto Start The Quiz!",
-                 style:TextStyle(
+                 style:TextStyle(color: Colors.blue,
                    fontSize: 25.0,
                    fontFamily: "Quando",
                  ),

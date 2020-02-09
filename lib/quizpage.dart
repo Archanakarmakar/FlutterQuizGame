@@ -50,6 +50,7 @@ class _quizpageState extends State<quizpage> {
   int i=1;
   int timer = 30;
   String showtimer="30";
+  String QA="";
 
   Map<String, Color> btncolor ={
 
@@ -90,7 +91,7 @@ class _quizpageState extends State<quizpage> {
         i++;
       }else{
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder:(context) => resultpage(marks:marks),
+          builder:(context) => resultpage(QA: QA),
         ));
       }
       btncolor["a"] = Colors.indigo;
@@ -98,27 +99,26 @@ class _quizpageState extends State<quizpage> {
       btncolor["c"] = Colors.indigo;
       btncolor["d"] = Colors.indigo;
     });
-    starttimer();
+    //starttimer();
   }
-
   void checkanswer(String k) {
-    if (mydata[2]["1"] == mydata[1]["1"][k]) {
+    if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
       marks = marks + 5;
+      QA=QA+ "\n\nQ:  "+ (mydata[0][i.toString()])+" -- Correct Ans: " +(mydata[2][i.toString()])+"  User Selection-"+(mydata[1][i.toString()][k]); // capture Answer
       colortoshow = right;
-      //print('${mydata[2]["1"]}');
-      //print('${mydata[1]["1"][k]}');
+      print("$QA");
     }
     else
     {
+      QA=QA+ "\n\nQ:  "+ (mydata[0][i.toString()])+" -- Correct Ans: " +(mydata[2][i.toString()])+"  User Selection-"+(mydata[1][i.toString()][k]); // capture Answer
       colortoshow = wrong;
-      //print('w${mydata[2]["1"]}');
-      //print('w${mydata[1]["1"][k]}');
+      print("$QA");
     }
     setState(() {
       btncolor[k] = colortoshow;
       canceltimer = true;
     });
-    Timer(Duration(seconds: 1),nextquestion);
+    Timer(Duration(seconds: 2),nextquestion);
   }
   Widget choicebutton(String k){
     return Padding(
@@ -130,6 +130,7 @@ class _quizpageState extends State<quizpage> {
           onPressed: () => checkanswer(k),
           child:Text(
             mydata[1][i.toString()][k],
+            //mydata[1]["1"][k],
             style:TextStyle(
               color: Colors.white,
               fontFamily:"Quando",
@@ -161,7 +162,6 @@ class _quizpageState extends State<quizpage> {
               builder:(context)=> AlertDialog(
                   title: Text(
                     "Quizstar",
-
                   ),
                   content: Text(
                       "You can't go back at this stage"
@@ -178,7 +178,6 @@ class _quizpageState extends State<quizpage> {
                     )
                   ]
               )
-
           );
         },
         child: Scaffold(
@@ -220,6 +219,7 @@ class _quizpageState extends State<quizpage> {
                   child:Container(
                     alignment:Alignment.topCenter ,
                     child:Center(
+                    //  label:Text("Countdown"),
                       child:Text(
                           showtimer,
                         style:TextStyle(
@@ -227,6 +227,7 @@ class _quizpageState extends State<quizpage> {
                           fontWeight:FontWeight.w700,
                           fontFamily: 'Times New Roman',
                         ),
+
                       ) ,
                     ),
                   )

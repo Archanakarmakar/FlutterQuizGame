@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/auth.dart';
 import 'package:login/constants.dart';
 import 'package:login/loading.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 
 class SignIn extends StatefulWidget {
 
@@ -25,15 +25,19 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
+      resizeToAvoidBottomInset: false, // set it to false
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         elevation: 0.0,
         title: Text('SignIn to Kids Quiz'),
         actions:<Widget>[
+          FlutterLogo(size:60),
+
             FlatButton.icon(
-            icon:Icon(Icons.person),
-            label:Text('Register'),
+              icon:Icon(Icons.person),
+              label:Text('Register'),
+              textColor: Colors.white,
               onPressed:  () {
               widget.toggleView();
               },
@@ -42,7 +46,7 @@ class _SignInState extends State<SignIn> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
          child: Form(
            key: _formKey,
           child:Column(
@@ -91,7 +95,10 @@ class _SignInState extends State<SignIn> {
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
-              FlutterLogo(size: 200),
+              SizedBox(height: 0.0,),
+              Text(
+                  'Existing User Sign In Here\n\nNew User Click on Register'
+              ),
             ],
                ),
                ),

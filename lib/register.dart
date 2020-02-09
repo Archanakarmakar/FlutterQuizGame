@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/auth.dart';
 import 'package:login/constants.dart';
 import 'package:login/loading.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 
 
 
@@ -26,15 +26,18 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
+        resizeToAvoidBottomInset: false, // set it to false
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.indigo,
         elevation: 0.0,
         title: Text('Register to Kids Quiz'),
         actions:<Widget>[
+          FlutterLogo(size:60),
           FlatButton.icon(
             icon:Icon(Icons.person),
             label:Text('Sign In'),
+            textColor: Colors.white,
             onPressed:  () {
               widget.toggleView();
             },
@@ -67,9 +70,9 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height:20.0),
                 RaisedButton(
-                  color:Colors.pink[400],
+                  color:Colors.blue,
                   child:Text(
-                    'Sign in',
+                    'Sign Up Here',
                     style:TextStyle(color:Colors.white),
                   ),
                   onPressed: ()async {
@@ -92,10 +95,16 @@ class _RegisterState extends State<Register> {
                   error,
                   style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
-                ],
-          ),
+                SizedBox(height: 0.0,),
+                Text(
+                    'New User Sign Up Here\n\nExisting User Click on Sign In'
+                ),
+                 // FlutterLogo(size:50),
+                 ],
+
         ),
       ),
+    )
     );
   }
 }

@@ -1,10 +1,11 @@
-import 'dart:async';
-import 'dart:convert';
+//import 'dart:async';
+//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login/home.dart';
 import 'package:login/quizpage.dart';
 import 'package:login/auth.dart';
-import 'package:login/authenticate.dart';
+//import 'package:login/authenticate.dart';
 
 class quizstarthm extends StatefulWidget {
  // final AuthService _auth= AuthService();
@@ -18,8 +19,8 @@ class _quizstarthmState extends State<quizstarthm> {
   final AuthService _auth = AuthService();
 
   List<String> images = [
-    "images/logo.png",
-    "images/js.png",
+    "images/quizimg.png",
+    "images/img.png",
 
   ];
   Widget customcard(String langname,String image){
@@ -97,11 +98,13 @@ class _quizstarthmState extends State<quizstarthm> {
           elevation: 0.0,
           actions:<Widget>[
             FlatButton.icon(
-              icon:Icon(Icons.person),
-              label:Text('Logout'),
+              icon:Icon(Icons.home),
+              label:Text('Go Home'),
               color:Colors.red[500],
-              onPressed: ()async{
-                await _auth.signOut();
+              onPressed: (){
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder:(context)=> Home(),
+                ));
               },
             ),
           ],
@@ -110,8 +113,8 @@ class _quizstarthmState extends State<quizstarthm> {
 
         body:ListView(
           children: <Widget>[
-            customcard("Math1",images[0]),
-            customcard("Math2",images[1]),
+            customcard("1st Grade Math",images[0]),
+            customcard("2nd Grade Math",images[1]),
           ],
         )
     );

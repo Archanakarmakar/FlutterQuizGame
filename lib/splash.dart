@@ -1,5 +1,6 @@
 import 'dart:async';
 //import 'dart:html';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login/quizstarthm.dart';
 //import 'package:flutter/services.dart';
@@ -11,8 +12,11 @@ class splashscreen extends StatefulWidget {
 }
 
 class _splashscreenState extends State<splashscreen> {
-  @override
-  void initState(){
+  final _formKey = GlobalKey<FormState>();
+   final List<String> _garads=[ "Grade1","Grade2","Grade3","Grade4","Grade5"];
+  var _chooseItemSelected = "Grade1";
+   @override
+ /* void initState(){
     super.initState();
     Timer(Duration(seconds: 20),()
     {
@@ -21,7 +25,7 @@ class _splashscreenState extends State<splashscreen> {
       ));
     });
   }
-
+*/
   @override
   // void initstate()
   Widget build(BuildContext context) {
@@ -66,20 +70,75 @@ class _splashscreenState extends State<splashscreen> {
                                 ),
             ),
                          Expanded(
-                           flex:9,
+                           flex:2,
                            child:Material(
                                  child:Text(
-                                   "Rules:",
+                                   "Select the Grades",
                                    style: TextStyle(
-                                     fontSize: 40.0,
+                                     fontSize: 25.0,
                                      color: Colors.indigo,
-                                     fontFamily: "Satisfy",
+                                     fontFamily: "Quando",
                                    ),
                                  )
                                )
+
                      ) ,
-                              ],
-            ),
+               Expanded(
+                   flex:4,
+                 child: Form(
+                   key: _formKey,
+                   child:ListView(
+                     padding:EdgeInsets.symmetric(horizontal:30.0),
+                        children:<Widget>[
+                         Row(
+                           mainAxisAlignment:MainAxisAlignment.center,
+                           children:<Widget>[
+                            Icon(Icons.grade),
+                             SizedBox(width:100.0,),
+                             DropdownButton<String>(
+                             items:_garads.map((String dropDownStringItem){
+                               return DropdownMenuItem<String>(
+                                 value:dropDownStringItem,
+                                 child:Text(dropDownStringItem),
+                               );
+
+
+
+                             }).toList(),
+                               onChanged:(String newValue) {
+                                 setState(() {
+                                 this. _chooseItemSelected = newValue;
+                                 });
+                               },
+                               value: _chooseItemSelected,
+
+                             ),
+                             FlatButton.icon(
+                               icon:Icon(Icons.subject),
+                               label:Text('Play'),
+                               color:Colors.red[500],
+                               onPressed:(){
+
+                                 Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                   builder:(context)=> quizstarthm(),
+                                 ));
+                               },
+                             ),
+                           ],
+                         ),
+                         ],
+
+
+                          ),
+                 ),
+                   ),
+
+                   ],
+                 ),
+
+
+
+
     );
   }
 }

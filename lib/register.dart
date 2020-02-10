@@ -97,7 +97,7 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 0.0,),
                 Text(
-                    'New User Sign Up Here\n\nExisting User Click on Sign In'
+                    ""
                 ),
                  // FlutterLogo(size:50),
                  ],

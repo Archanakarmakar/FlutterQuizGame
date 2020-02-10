@@ -61,9 +61,9 @@ class _splashscreenState extends State<splashscreen> {
                     child:Text(
                             "Kids Quiz:",
                              style: TextStyle(
-                             fontSize: 40.0,
+                             fontSize: 45.0,
                              color: Colors.indigo,
-                             fontFamily: "Satisfy",
+                             fontFamily: "Quando",
                                  ),
                                 ),
                                   ),
@@ -135,11 +135,7 @@ class _splashscreenState extends State<splashscreen> {
 
                    ],
                  ),
-
-
-
-
-    );
+                    );
   }
 }
 

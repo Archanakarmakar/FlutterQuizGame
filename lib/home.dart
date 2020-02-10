@@ -19,9 +19,10 @@ class  Home extends StatelessWidget {
     backgroundColor:Colors.lightGreenAccent,
       appBar: AppBar(
         title:Text(' Kids Quiz game'),
-        backgroundColor:Colors.blue[900],
+        backgroundColor:Colors.indigo,
         elevation: 0.0,
         actions:<Widget>[
+          FlutterLogo(size:60),
           FlatButton.icon(
             icon:Icon(Icons.person),
             label:Text('LOGOUT'),

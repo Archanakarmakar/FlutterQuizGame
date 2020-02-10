@@ -94,9 +94,10 @@ class _quizstarthmState extends State<quizstarthm> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Start Kids Quiz"),
-          backgroundColor:Colors.blue[900],
+          backgroundColor:Colors.indigo,
           elevation: 0.0,
           actions:<Widget>[
+            FlutterLogo(size:60),
             FlatButton.icon(
               icon:Icon(Icons.home),
               label:Text('Go Home'),
@@ -114,7 +115,7 @@ class _quizstarthmState extends State<quizstarthm> {
         body:ListView(
           children: <Widget>[
             customcard("1st Grade Math",images[0]),
-            customcard("2nd Grade Math",images[1]),
+            customcard("1st Grade GK",images[1]),
           ],
         )
     );

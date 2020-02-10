@@ -6,6 +6,7 @@ import 'package:login/home.dart';
 import 'package:login/quizstarthm.dart';
 //import 'package:login/sign_in.dart';
 import 'package:login/auth.dart';
+import 'package:login/splash.dart';
 //import 'package:login/authenticate.dart';
 //import 'package:login/splash.dart';
 
@@ -101,7 +102,7 @@ class _scoredetailState extends State<scoredetail> {
                   OutlineButton(
                     onPressed:(){
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder:(context)=> quizstarthm(),
+                        builder:(context)=> splashscreen(),
                       ));
                     },
                     child:Text(

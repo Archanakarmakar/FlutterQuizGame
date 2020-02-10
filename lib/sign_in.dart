@@ -95,10 +95,11 @@ class _SignInState extends State<SignIn> {
                 error,
                 style: TextStyle(color: Colors.redAccent, fontSize: 14.0),
               ),
-              SizedBox(height: 0.0,),
-              Text(
-                  'Existing User Sign In Here\n\nNew User Click on Register'
-              ),
+
+
+
+
+
             ],
                ),
                ),
